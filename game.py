@@ -269,12 +269,6 @@ def main():
         pos = random.randint(0, X_MAX)
         EnemySprite(pos, [everything, enemies])
 
-    # Get some music
-    if pygame.mixer.get_init():
-        pygame.mixer.music.load("DST-AngryMod.mp3")
-        pygame.mixer.music.set_volume(0.8)
-        pygame.mixer.music.play(-1)
-
     while True:
         clock.tick(30)
         # Check for input
@@ -326,7 +320,7 @@ def main():
         # Check for successful attacks
         hit_ships = pygame.sprite.groupcollide(
             enemies, weapon_fire, True, True)
-        for k, v in hit_ships.iteritems():
+        for k, v in hit_ships.items():
             k.kill()
             for i in v:
                 i.kill()
